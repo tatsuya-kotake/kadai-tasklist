@@ -1,21 +1,33 @@
-<%= form_for(task) do |f| %>
-　<% if task.errors.any? %>
-    <div class="alert alert-warning">
-      <ul>
-        <% task.errors.full_messages.each do |task| %>
-          <li><%= task %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+<div class="row">
+  <div class="col-xs-12">
+  <div class="col-sm-offset-2 col-sm-8">
+  <div class="col-lg-offset-3 col-lg-6">  
 
-  <div class="form-group">
-    <%= f.label :content, 'タスク' %>
-    <%= f.text_field :content , class: "form-control" %>
-
-    <%= f.label :status, 'ステータス' %>
-　   <%= f.select :status,[["完了","完了"],["未完","未完"]],:prompt=>"選択してください", class:"form-control" %>
+    <%= form_for(task) do |f| %>
+    　<% if task.errors.any? %>
+        <div class="alert alert-warning">
+          <ul>
+            <% task.errors.full_messages.each do |task| %>
+              <li><%= task %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+    
+      <div class="form-group">
+        <%= f.label :content, 'タスク' %>
+        <%= f.text_field :content , class: "form-control" %>
+    
+        <%= f.label :status, 'ステータス' %>
+    　   <%= f.select :status,[["完了","完了"],["未完","未完"]],:prompt=>"選択してください", class:"form-control" %>
+      </div>
+      
+      <%= f.submit '投稿', class: "btn btn-primary" %>
+    <% end %>
+      
+  </div>    
+  </div>    
   </div>
-  
-  <%= f.submit '投稿', class: "btn btn-primary" %>
-<% end %>
+</div>
+
+
