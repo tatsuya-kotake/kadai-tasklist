@@ -1,5 +1,6 @@
-<% if task.errors.any? %>
-    <div id="error_explanation">
+<%= form_for(task) do |f| %>
+　<% if task.errors.any? %>
+    <div class="alert alert-warning">
       <ul>
         <% task.errors.full_messages.each do |task| %>
           <li><%= task %></li>
@@ -8,11 +9,13 @@
     </div>
   <% end %>
 
-<%= form_for(task) do |f| %>
-  <%= f.label :content, 'メッセージ' %>
-  <%= f.text_field :content %>
+  <div class="form-group">
+    <%= f.label :content, 'タスク' %>
+    <%= f.text_field :content , class: "form-control" %>
+
+    <%= f.label :status, 'ステータス' %>
+　   <%= f.select :status,[["完了","完了"],["未完","未完"]],:prompt=>"選択してください", class:"form-control" %>
+  </div>
   
-  <%= f.label :status, 'ステータス' %>
-　<%= f.select :status,[["完了","完了"],["未完","未完"]],:prompt=>"選択してください" %>
-  <%= f.submit '投稿' %>
+  <%= f.submit '投稿', class: "btn btn-primary" %>
 <% end %>
