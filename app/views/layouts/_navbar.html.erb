@@ -1,6 +1,24 @@
 <header>
   <nav class="navbar navbar-inverse navbar-static-top">
     <div class="container">
+      
+    <% if logged_in? %> 
+    
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+        </button>
+        <a class="navbar-brand" href="/tasks">Tasklist</a>
+      </div>
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+            <li><%= link_to  '新規タスクの投稿', new_task_path %></li>
+            <li><%= link_to 'logout', new_login_path, method: :delete  %></li>
+        </ul>
+      </div>
+      
+    <% else %>
+    
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
           <span class="sr-only">Toggle navigation</span>
@@ -9,9 +27,13 @@
       </div>
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to  '新規タスクの投稿', new_task_path %></li>
+            <li><%= link_to 'SignUp', new_user_path %></li>
+            <li><%= link_to 'Login', new_login_path %></li>
         </ul>
       </div>
+    
+    <% end %>
+
     </div>
   </nav>
 </header>
