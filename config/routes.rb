@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
+ root to: 'tasks#index'
 
-  get 'toppages/index'
-  root to:'toppages#index'
-  
   resources :tasks
   resources :users, only: [:new, :create]
   resources :login,only: [:new,:create,:destroy]

@@ -7,7 +7,7 @@ class LoginController < ApplicationController
     password = params[:session][:password]
     if signin(email, password)
       flash[:sucess] = 'ログインに成功しました。'
-      redirect_to tasks_path
+      redirect_to root_path
       
     else
       flash.now[:danger] = 'ログインに失敗しました。'
